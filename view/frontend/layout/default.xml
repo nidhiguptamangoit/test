@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="1columns">
+    <head>
+        <css src="Salecto2_Magento2FrontendTheme::custom.css"/>
+    </head>
+    <body>         
+        <!-- block for overriding header file-->
+        <block class="Magento\Theme\Block\Html\Header" name="custom-top-block" template="Salecto2_Magento2FrontendTheme::html/header.phtml"/>
+        <!-- move block above header -->
+        <move element="custom-top-block" destination="page.wrapper" before="-"/>
+        <!-- remove my account, regiter and wish list links-->
+        <referenceBlock name="my-account-link" remove="true"/>
+        <referenceBlock name="register-link" remove="true"/>
+        <referenceBlock name="wish-list-link" remove="true" />
+        <!-- block for overriding footer file-->
+        <block class="Magento\Framework\View\Element\Template" before="-" name="custom-bottom-bar" template = 'Salecto2_Magento2FrontendTheme::html/footer.phtml' />
+        <!-- move block before footer-->
+        <move element="custom-bottom-bar" destination="page.wrapper" before="footer"/>
+    </body>
+</page>
+  

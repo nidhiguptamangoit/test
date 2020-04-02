@@ -1,0 +1,21 @@
+<?php
+/**
+ * Child Block of  header type 1
+ */
+/**
+ * @var \SalectoFrontend\FrontendTheme\Helper\Data $datahelper
+ */
+/* check top bar from config */
+$dataHelper = $this->helper('Salecto2\Magento2FrontendTheme\Helper\Data');
+$configPath = 'salecto_frontend/general/showtopbar';
+$topBarValue = $dataHelper->getConfig($configPath);
+// die($topBarValue);
+if(isset($topBarValue) && $topBarValue == 1) {
+    $identifierPath = 'salecto_frontend/general/topbarcms';
+    $topBar = $dataHelper->getConfig($identifierPath);?> 
+    <div class="header-type1-topbar"><?=$this->getLayout()
+        ->createBlock('Magento\Cms\Block\Block')
+        ->setBlockId($topBar)
+        ->toHtml();?>
+    </div>
+<?php } ?>

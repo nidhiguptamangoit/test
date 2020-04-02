@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/**
+ * @var \Salecto2\Magento2FrontendTheme\Helper\Data $datahelper
+ */
+/* check header type from config */
+$dataHelper = $this->helper('Salecto2\Magento2FrontendTheme\Helper\Data');
+$scope = 'theme';
+$footerData = 'footer_type';
+$footerType = $dataHelper->getThemeConfig($scope, $footerData);
+if(isset($footerType) && $footerType == 1) :
+    echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Salecto2_Magento2FrontendTheme::html/footer_type1.phtml")->toHtml();
+endif;

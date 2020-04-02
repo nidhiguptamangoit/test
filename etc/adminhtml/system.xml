@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- Create Admin configuration for Header and Footer -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="salecto" translate="label" sortOrder="10">
+           <label>Salecto</label>
+        </tab>
+        <section id="salecto_frontend" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Salecto Frontend</label>
+            <tab>salecto</tab>
+            <resource>SalectoFrontend_FrontendTheme::frontendtheme_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="showtopbar" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Show Topbar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="topbarcms" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Select CMS block</label>
+                <depends>
+                    <field id="showtopbar">1</field>
+                </depends>
+                    <source_model>Magento\Cms\Model\Config\Source\Block</source_model>
+                </field>
+                <field id="showbottombar" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Show Bottombar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="bottombarcms" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Select CMS block</label>
+                <depends>
+                    <field id="showbottombar">1</field>
+                </depends>
+                    <source_model>Magento\Cms\Model\Config\Source\Block</source_model>
+                </field>
+            </group>
+        </section>    
+    </system>
+</config>

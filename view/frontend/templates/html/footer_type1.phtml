@@ -1,0 +1,20 @@
+<?php
+/**
+ * Child Block of  footer type 1
+ */
+/**
+ * @var \Salecto2\Magento2FrontendTheme\Helper\Data $datahelper
+ */
+/* check config data for bottom bar */
+$dataHelper = $this->helper('Salecto2\Magento2FrontendTheme\Helper\Data');
+$configPath = 'salecto_frontend/general/showbottombar';
+$bottomBarValue = $dataHelper->getConfig($configPath);
+if(isset($bottomBarValue) && $bottomBarValue == 1) {
+    $identifierPath = 'salecto_frontend/general/bottombarcms';
+    $bottomBar = $dataHelper->getConfig($identifierPath);?> 
+    <div class="header-type1-topbar"><?=$this->getLayout()
+        ->createBlock('Magento\Cms\Block\Block')
+        ->setBlockId($bottomBar)
+        ->toHtml();?>
+    </div>
+<?php } ?>
